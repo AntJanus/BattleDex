@@ -21,7 +21,7 @@ gulp.task('clean', function(cb) {
 
 gulp.task('copy', ['clean'], function() {
   var dirs = [
-    src + '**/**.*',
+    src + '/**/**.*',
     '!'+js
   ];
 
@@ -33,8 +33,14 @@ gulp.task('copy', ['clean'], function() {
 });
 
 gulp.task('uglify', ['copy'], function() {
+  var jsFiles = [
+    'bower_components/angular/angular.js',
+    'bower_components/ui-router/release/angular-ui-router.js',
+    'bower_components/angular-animate/angular-animate.js',
+    js + '/**/**.js'
+  ];
 
-  return gulp.src(js + '/**/**.js', {
+  return gulp.src(jsFiles, {
       base: src
     })
     .pipe(uglify({
