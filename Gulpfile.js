@@ -1,28 +1,49 @@
-var gulp    = require('gulp'),
-    rimraf  = require('rimraf'), //for cleaning
-    uglify  = require('gulp-uglify'), //for JS
-    concat  = require('gulp-concat'), // for whatever
+var gulp        = require('gulp'),
+    rimraf      = require('rimraf'), //for cleaning
+    uglify      = require('gulp-uglify'), //for JS
+    concat      = require('gulp-concat'), // for whatever
     browserSync = require('browser-sync')
+    sass        = require('gulp-ruby-sass')
   ;
 
 //vars
 var build = 'build';
-var src = 'src';
-var js = 'src/js';
+var src   = 'src';
+var js    = 'src/js';
+var scss  = 'src/scss';
 
 //cleaning
 gulp.task('clean:js', function(cb) {
   rimraf(build + '/js/', cb);
 });
 
+gulp.task('clean:css', function(cb) {
+  rimraf(build + '/css/', cb);
+});
+
 gulp.task('clean', function(cb) {
   rimraf(build, cb);
+});
+
+gulp.task('sass', function() {
+  return sass(scss, {
+      loadPath: ['scss'],
+      style: 'nested',
+      bundleExec: true,
+      unixNewlines: true
+    })
+    .on('error', function(err) {
+      console.log(err.message);
+    })
+    .pipe(gulp.dest(build + '/css'))
+  ;
 });
 
 gulp.task('copy', ['clean'], function() {
   var dirs = [
     src + '/**/**.*',
-    '!'+js
+    '!'+js + '/**/**.*',
+    '!'+scss + '/**/**.*'
   ];
 
   return gulp.src(dirs, {
@@ -65,6 +86,10 @@ gulp.task('build', ['clean', 'copy', 'uglify', 'browser-sync'], function() {
 });
 
 gulp.task('default', ['build'], function() {
+
   gulp.watch([src + '/**/**.*', '!' + js], ['copy', 'uglify', browserSync.reload]);
+
   gulp.watch([js + '/**/**.*'], ['uglify', browserSync.reload]);
+
+  gulp.watch([scss + '/**/**.*'], ['scss', browserSync.reload]);
 });
