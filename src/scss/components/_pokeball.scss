@@ -49,6 +49,40 @@
   &active {
     animation: spin 1.8s infinite linear;
     -webkit-animation: spin 1.8s infinite linear;
+    .poke-center {
+      animation: flicker 1.3s infinite linear;
+      -webkit-animation: flicker 1.3s infinite linear;
+    }
   }
 }
+
+@keyframes flicker {
+ 0% {
+   background-color: $base-white;
+
+ }
+ 50% {
+   background-color: $poke-color-light;
+
+ }
+ 100% {
+   background-color: $base-white;
+
+ }
+}
+@-webkit-keyframes flicker {
+ 0% {
+   background-color: $base-white;
+
+ }
+ 50% {
+   background-color: $poke-color-light;
+
+ }
+ 100% {
+   background-color: $base-white;
+
+ }
+}
+
 
