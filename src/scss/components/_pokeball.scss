@@ -1,0 +1,54 @@
+.poke-{
+
+  &wrapper {
+    border-radius: 50px;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+    @include border-box;
+
+    &:hover {
+      .poke-center {
+        background-color: $poke-color-light;
+      }
+    }
+  }
+
+  &top {
+    border: 3px solid #000;
+    @include border-radius(50px 50px 0 0);
+    width: 100px;
+    height: 50px;
+    background-color: $poke-color;
+    @include border-box;
+  }
+
+  &bottom {
+    border: 3px solid #000;
+    @include border-radius(0 0 50px 50px);
+    width: 100px;
+    height: 50px;
+    background-color: $base-white;
+    @include border-box;
+  }
+
+  &center {
+    position: absolute;
+    top: 36px;
+    left: 35px;
+    border: 3px solid $base-black;
+    height: 30px;
+    width: 30px;
+    background-color: $base-white;
+
+    @include border-radius(25px);
+    @include border-box;
+  }
+
+  &active {
+    animation: spin 1.8s infinite linear;
+    -webkit-animation: spin 1.8s infinite linear;
+  }
+}
+

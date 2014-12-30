@@ -2,7 +2,7 @@ var gulp        = require('gulp'),
     rimraf      = require('rimraf'), //for cleaning
     uglify      = require('gulp-uglify'), //for JS
     concat      = require('gulp-concat'), // for whatever
-    browserSync = require('browser-sync')
+    browserSync = require('browser-sync'),
     sass        = require('gulp-ruby-sass')
   ;
 
@@ -35,7 +35,7 @@ gulp.task('sass', function() {
     .on('error', function(err) {
       console.log(err.message);
     })
-    .pipe(gulp.dest(build + '/css'))
+    .pipe(gulp.dest('./' + build + '/css'))
   ;
 });
 
@@ -81,15 +81,15 @@ gulp.task('browser-sync', function() {
   });
 });
 
-gulp.task('build', ['clean', 'copy', 'uglify', 'browser-sync'], function() {
+gulp.task('build', ['clean', 'copy', 'sass', 'uglify', 'browser-sync'], function() {
   console.log('Running');
 });
 
 gulp.task('default', ['build'], function() {
 
-  gulp.watch([src + '/**/**.*', '!' + js], ['copy', 'uglify', browserSync.reload]);
+  gulp.watch([src + '/**/**.*', '!' + js, '!' + scss], ['copy', 'uglify', browserSync.reload]);
 
   gulp.watch([js + '/**/**.*'], ['uglify', browserSync.reload]);
 
-  gulp.watch([scss + '/**/**.*'], ['scss', browserSync.reload]);
+  gulp.watch([scss + '/**/**.*'], ['sass', browserSync.reload]);
 });

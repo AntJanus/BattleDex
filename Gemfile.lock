@@ -4,6 +4,7 @@ GEM
     sass (3.4.7)
 
 PLATFORMS
+  java
   ruby
 
 DEPENDENCIES

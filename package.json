@@ -22,7 +22,8 @@
   },
   "homepage": "https://github.com/AntJanus/BattleDex",
   "dependencies": {
-    "gulp": "^3.8.10"
+    "gulp": "^3.8.10",
+    "gulp-ruby-sass": "1.0.0-alpha"
   },
   "devDependencies": {
     "browser-sync": "^1.8.1",

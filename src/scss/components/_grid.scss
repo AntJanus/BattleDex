@@ -1,0 +1,45 @@
+//grid
+
+$grid-columns: 12;
+$grid-max-width: 65em;
+
+$breakpoint-small: "only screen and (min-width: 20em)";
+$breakpoint-medium: "only screen and (min-width: 30em)";
+
+.container, .col {
+  margin: 0;
+  padding: 0;
+
+  @include border-box;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.col {
+  min-height: 1px;
+  width: 100%;
+  padding: 1em;
+}
+
+@media #{$breakpoint-small} {
+
+}
+
+@media #{$breakpoint-medium} {
+  .container {
+    width: 95%;
+    max-width: $grid-max-width;
+  }
+
+  @for $i from 1 through $grid-columns {
+
+    .col-#{$i} {
+      width: 100% / $grid-columns * $i;
+      display: inline-block;
+    }
+  }
+
+}

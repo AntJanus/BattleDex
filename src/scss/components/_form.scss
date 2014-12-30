@@ -1,0 +1,18 @@
+form {
+  margin: 0 0 $baseline-height;
+}
+
+label,
+input,
+button,
+select,
+textarea {
+  font-size: $font-size;
+  font-family: $font-family-sans;
+  line-height: $baseline-height;
+}
+
+input, textarea {
+  border: 1px solid $base-light-grey;
+}
+

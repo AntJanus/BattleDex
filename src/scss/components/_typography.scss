@@ -1,0 +1,23 @@
+//typography
+
+body {
+  color: $font-color;
+  font-size: $font-size;
+  line-height: $baseline-height;
+  font-family: $font-family-sans;
+}
+
+.hero {
+  margin: 1em 0;
+  text-align: center;
+
+  h1 {
+    font-size: $large-font;
+    color: $poke-color;
+    margin-top: 5px;
+
+    span {
+      color: $base-black;
+    }
+  }
+}

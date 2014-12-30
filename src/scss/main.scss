@@ -6,9 +6,29 @@
   "vendor/normalize";
 
 //helpers
+@import
+  "components/helpers";
+
+@import
+  "components/animations";
 
 //global
+@import
+  "vars";
 
 //components
 @import
   "components/grid";
+
+@import
+  "components/typography";
+
+@import
+  "components/form";
+
+@import
+  "components/pokeball";
+
+//pages
+@import
+  "pages/searchbar";

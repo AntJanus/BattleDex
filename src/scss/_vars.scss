@@ -1,0 +1,22 @@
+$container-width: 800px;
+
+//colors
+
+$base-grey: #58595b;
+$base-dark-grey: #222;
+$base-light-grey: lighten($base-grey, 35%);
+
+$base-black: #000;
+$base-white: #fff;
+
+$poke-color: #EB2224;
+$poke-color-light: lighten($poke-color, 35%);
+
+
+//typography
+$font-color: #222;
+$font-size: 1em;
+$baseline-height: 1.5em;
+$font-family-sans: 'Segoe UI', Verdana, Arial, sans-serif;
+
+$large-font: 3em;
